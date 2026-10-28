@@ -45,7 +45,9 @@ jobs:
           node-version: 22
 
       - name: Bloğu derle
-        run: node kaynak/blog/build.mjs site
+        run: |
+          node kaynak/blog/build.mjs site
+          ls -laR site | head -40
 
       - id: surum
         run: echo "surum=$(cat site/surum.txt)" >> "$GITHUB_OUTPUT"
