@@ -6,7 +6,7 @@ name: Blog yayını
 
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "7,22,37,52 * * * *"   # saat başı yoğunluğundan kaçınmak için dakikalar kaydırıldı
     - cron: "17 3 1 * *"   # ayda bir: depo hareketsiz kalıp zamanlama durmasın diye
   workflow_dispatch:
   push:
