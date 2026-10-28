@@ -37,6 +37,7 @@ jobs:
           sparse-checkout: |
             blog
             public/favicon.svg
+            public/google*.html
             src/lib/supabase.js
           sparse-checkout-cone-mode: false
 
