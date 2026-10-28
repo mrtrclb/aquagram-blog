@@ -47,7 +47,7 @@ jobs:
       - name: Bloğu derle
         run: |
           node kaynak/blog/build.mjs site
-          ls -laR site | head -40
+          echo "::warning::pwd=$(pwd) dosyalar=$(find site -type f | wc -l) $(find site -maxdepth 1 | tr '\n' ' ')"
 
       - id: surum
         run: echo "surum=$(cat site/surum.txt)" >> "$GITHUB_OUTPUT"
@@ -60,6 +60,10 @@ jobs:
           key: blog-surum-${{ steps.surum.outputs.surum }}
           lookup-only: true
 
+      - if: steps.onbellek.outputs.cache-hit != 'true'
+        name: tar denemesi
+        run: |
+          tar --dereference --hard-dereference --directory site -cvf /tmp/a.tar --exclude=.git --exclude=.github . > /tmp/tar.log 2>&1 || echo "::warning::tar hata: $(tail -5 /tmp/tar.log | tr '\n' ' | ')"
       - if: steps.onbellek.outputs.cache-hit != 'true'
         uses: actions/upload-pages-artifact@v3
         with:
