@@ -1,4 +1,4 @@
-# Aquagram Blog — blog.aquagram.com.tr
+# Aquagram Blog — blog.aquagram.com.tr.
 # 15 dakikada bir yayındaki yazıları Supabase'den okuyup statik siteyi derler.
 # İçerik değişmediyse yayın atlanır. Veritabanına ulaşılamazsa derleme hata verir ve eski site yayında kalır.
 # Derleyici kodu ana depoda (mrtrclb/aquatakas-mvp, blog/ klasörü) durur; bu depo yalnız yayın içindir.
